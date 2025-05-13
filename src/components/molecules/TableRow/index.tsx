@@ -21,7 +21,7 @@ interface RowData{
 interface Props{
     data:RowData;
 }
-const TableRows:React.FC <Props> = ({data})=>{
+const TableRow:React.FC <Props> = ({data})=>{
 
        const rowValues = [
     { key: "name", value: data.name },
@@ -57,7 +57,7 @@ const TableRows:React.FC <Props> = ({data})=>{
 }
 
 
-export default TableRows;
+export default TableRow;
 
 
 
