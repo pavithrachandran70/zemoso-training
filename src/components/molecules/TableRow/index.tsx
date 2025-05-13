@@ -22,15 +22,32 @@ interface Props{
     data:RowData;
 }
 const TableRows:React.FC <Props> = ({data})=>{
+
+       const rowValues = [
+    { key: "name", value: data.name },
+    { key: "status", value: data.status },
+    { key: "prenoticeDate", value: data.prenoticeDate },
+    { key: "postnoticeDate", value: data.postnoticeDate },
+  ];
+    
     return(
       
 <StyledTableRow>
    
 
-        <NameCell>{data.name} </NameCell>
-        <CellAtom ><StatusLabel label={data.status} /></CellAtom>
-        <StyledTableCell>{data.prenoticeDate}</StyledTableCell>
-        <StyledTableCell>{data.postnoticeDate}</StyledTableCell>
+      {rowValues.map(({ key, value }) => {
+        if (key === "status") {
+          return (
+            <CellAtom key={key}>
+              <StatusLabel label={value} />
+            </CellAtom>
+          );
+        }
+
+        const CellComponent = key === "name" ? CellAtom : StyledTableCell;
+
+        return <CellComponent key={key}>{value}</CellComponent>;
+      })}
        
 </StyledTableRow>  
 
