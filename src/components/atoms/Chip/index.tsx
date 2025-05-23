@@ -1,20 +1,21 @@
 
 import React from "react";
-import Chip from "@mui/material/Chip";
+import MuiChip from "@mui/material/Chip"; // <-- Alias the import
 
 interface Props {
   label: string;
 }
 
-const StatusLabel: React.FC<Props> = ({ label }) => {
+const Chip: React.FC<Props> = ({ label }) => {
   return (
-    <Chip
+    <MuiChip
       label={label}
-      variant="filled" // You can change to "filled" if needed
-      size="small"       // Optional: "small" or "medium"
+      variant="filled"
+      size="small"
     />
   );
 };
 
-export default StatusLabel;
+export default Chip;
+
 
